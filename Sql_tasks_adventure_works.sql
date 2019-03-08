@@ -10,3 +10,20 @@ FROM			[Person].[Person]
 		ON  [Person].[Person].BusinessEntityID = [Person].[EmailAddress].BusinessEntityID
 WHERE LastName = 'Kramer'
 
+--------------------------------------------------------------------------------------------
+
+--2. Show all the addresses for Person 'Amanda S. Cook'
+
+Use AdventureWorks
+Go
+
+Select FirstName, Middlename, LastName, AddressLine1, AddressLine2, AddressTypeID, City, StateProvinceID, PostalCode
+FROM
+				[Person].[Person] p
+     INNER JOIN [Person].[BusinessEntityAddress] bea
+		ON p.BusinessEntityID = bea.BusinessEntityID
+	 INNER JOIN [Person].[Address] a
+		ON bea.AddressID = a.AddressID
+Where p.FirstName = 'Amanda' and p.LastName = 'Cook'
+
+--------------------------------------------------------------------------------------------
