@@ -14,16 +14,16 @@ WHERE LastName = 'Kramer'
 
 --2. Show all the addresses for Person 'Amanda S. Cook'
 
-Use AdventureWorks
-Go
+USE AdventureWorks
+GO
 
-Select FirstName, Middlename, LastName, AddressLine1, AddressLine2, AddressTypeID, City, StateProvinceID, PostalCode
+SELECT FirstName, Middlename, LastName, AddressLine1, AddressLine2, AddressTypeID, City, StateProvinceID, PostalCode
 FROM
 				[Person].[Person] p
      INNER JOIN [Person].[BusinessEntityAddress] bea
 		ON p.BusinessEntityID = bea.BusinessEntityID
 	 INNER JOIN [Person].[Address] a
 		ON bea.AddressID = a.AddressID
-Where p.FirstName = 'Amanda' and p.LastName = 'Cook'
+WHERE p.FirstName = 'Amanda' and p.LastName = 'Cook'
 
 --------------------------------------------------------------------------------------------
